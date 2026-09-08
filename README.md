@@ -1,30 +1,31 @@
-# Daily Joke Aggregator 🤖
+# 🤖 n8n Automation Portfolio
 
-## The Problem
-Many professionals start their day looking for a quick mental break. However, browsing the internet for jokes wastes valuable time.
+Hi, I'm **Adil Hassam**. Welcome to my collection of real-world automation workflows built with **n8n**.
 
-## The Solution
-I built a fully automated workflow using **n8n** that:
-- Fetches a random joke from a public API.
-- Extracts just the punchline (removes all the messy JSON code).
-- Routes the joke through conditional logic (IF the joke contains a specific word, it goes to Branch A; otherwise, Branch B).
-- *(Future Upgrade)* Automatically delivers the joke via Email or Slack every morning at 8 AM.
-
-## Technology Stack
-- **n8n** (Workflow Automation Engine)
-- **Chuck Norris API** (Public REST API)
-- **JSON Data Parsing** (Set Node for data extraction)
-- **Conditional Logic** (IF Node for decision routing)
-
-## Visual Workflow
-![Workflow Flowchart](./Flowchart.png)
-
-## What This Proves
-This project demonstrates my ability to:
-1. Integrate external REST APIs.
-2. Transform and clean raw JSON data.
-3. Implement business logic (IF/THEN conditions) inside an automation pipeline.
-4. Design scalable automation architectures.
+I specialize in connecting apps, automating manual data entry, and building intelligent decision-making pipelines.
 
 ---
-**Built by Adil Hassam**
+
+## 📂 Projects
+
+### 1. [Daily Joke Aggregator](./project-1-daily-joke-bot/)
+Fetches a random joke from a public API, extracts the punchline, and routes it using conditional IF/THEN logic.  
+**Key Skills:** REST API Integration, JSON Parsing, Conditional Routing.
+
+### 2. [Morning Email Bot](./project-2-morning-email-bot/)
+*(Coming soon!)*  
+Automatically sends a daily joke via email using a Schedule Trigger and Gmail integration.  
+**Key Skills:** Scheduled Triggers, Email Automation, Error Handling.
+
+---
+
+## 🛠️ Technologies I Work With
+- n8n (Self-Hosted & Cloud)
+- REST APIs & Webhooks
+- Google Sheets / Gmail / Slack API
+- JSON & Data Transformation
+
+---
+
+ 
+**📂 Repository:** [https://github.com/Mugxal/n8n-automation-portfolio](https://github.com/Mugxal/n8n-automation-portfolio)
