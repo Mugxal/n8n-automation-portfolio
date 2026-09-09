@@ -1,0 +1,179 @@
+{
+  "name": "Morning Email Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -432,
+        0
+      ],
+      "id": "8490ee40-3511-49e5-9fcf-9fe8bf4af424",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://api.chucknorris.io/jokes/random",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -192,
+        0
+      ],
+      "id": "712281a1-d9d6-4324-8689-d30397313fbb",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d50952ce-b86d-469d-917d-9ee0c8175466",
+              "name": "joke",
+              "value": "={{ $json.value }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -16,
+        0
+      ],
+      "id": "0ebfaf4b-df88-4fcd-8cf6-fe16761b11af",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4fb4ff46-8464-40df-ae5b-bea94f6ee10c",
+              "leftValue": "={{ $json.joke }}",
+              "rightValue": "Chuck",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "cf52ddf7-9ae0-4978-92b4-882f4344103e",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "fromEmail": "adilmugxal432@gmail.com",
+        "toEmail": "adilmugxal432@gmail.com",
+        "subject": "Your daily Chuck joke",
+        "html": "=<h1> Good Morning 🤖</h1> <p>Here is your joke for today:</p> <p><b>{{ $json.joke }}</b></p><p>Have a great day</p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        432,
+        -48
+      ],
+      "id": "596c9a4a-7fdc-4165-bb4e-bf096993beaa",
+      "name": "Send an Email",
+      "webhookId": "eccbf068-91cc-43ba-abd6-4ea72d1530b5",
+      "credentials": {
+        "smtp": {
+          "id": "KfYWad6RZpkiySxa",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "c09f3ff5-f912-43a5-8674-16c9b81401ae",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fb28c8e23ec0d91c88718e960e2321229439ba872d48d4768503bd8ee7602a2b"
+  },
+  "id": "rCglBfCsgZWM1qmt",
+  "tags": []
+}
