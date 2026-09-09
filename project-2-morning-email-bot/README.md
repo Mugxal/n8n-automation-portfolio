@@ -18,7 +18,7 @@ I built a fully automated email bot using **n8n** that:
 - **Schedule Trigger** (Unattended Automation)
 
 ## Visual Workflow
-![Workflow Flowchart](./flowchart1.png)
+![Workflow Flowchart](./flowchart2.png)
 
 ## Key Features Demonstrated
 1. **Scheduled Automation** - Runs without human intervention.
