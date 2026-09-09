@@ -17,7 +17,7 @@ I built an automated workflow that:
 - **Set Node** (Data Extraction)
 
 ## Visual Workflow
-![Workflow Flowchart](./Flowchart.png)
+![Workflow Flowchart](./flowchart.png)
 
 ## Key Takeaway
 This project demonstrates my ability to pull data from external APIs, clean the data, and implement business logic (IF/THEN routing) using n8n.
